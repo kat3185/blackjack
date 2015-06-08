@@ -2,7 +2,7 @@ require 'pry'
 require_relative 'card'
 
 class Deck
-  attr_reader :deck
+  attr_accessor :deck
 
   def initialize
   suits = ["♠", "♥", "♦", "♣"]
@@ -29,7 +29,7 @@ class Deck
         @deck << Card.new(rank, suit, value)
       end
     end
-    @deck.shuffle!
+    @deck.to_a.shuffle!
   end
 
   def draw!

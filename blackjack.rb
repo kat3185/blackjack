@@ -7,8 +7,8 @@ require_relative 'lib/game'
 
 
 
-test_deck = Deck.new
+game_one = Game.new("Yourname")
 
-test_deck.shuffle!
-
-Hand.new(test_deck)
+game_one.deal_computer_hand
+game_one.deal_player_hand
+game_one.play_game
