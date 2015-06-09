@@ -6,9 +6,14 @@ require_relative 'lib/game'
 
 
 
+class Blackjack
+  def initialize
+    print "What is your name? "
+    @game = Game.new(gets.chomp)
+  end
 
-game_one = Game.new("Yourname")
-
-game_one.deal_computer_hand
-game_one.deal_player_hand
-game_one.play_game
+  def play
+    @game.play_game
+  end
+end
+Blackjack.new.play
