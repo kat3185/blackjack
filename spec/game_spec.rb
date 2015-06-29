@@ -1,7 +1,5 @@
 require_relative '../lib/game'
 
-
-
 describe Game do
   # describe '#check_for_aces' do
   #   it 'reduces ace value when necessary' do
@@ -35,8 +33,6 @@ describe Game do
         expect(game.deck.deck.count).to be_within(3).of(45)
       end
   end
-
-
 
   # describe '#player_hits?' do
   #   let(:user_input) { "h" }

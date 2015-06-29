@@ -1,11 +1,10 @@
 require_relative 'hand'
 
-
 class Game
   attr_accessor :player_hand, :player_score, :deck, :player
 
   def initialize(name)
-    @computer_name = "Dealer"
+    @computer_name = 'Dealer'
     @player = name
     @deck = Deck.new
   end
@@ -38,11 +37,11 @@ class Game
   end
 
   def check_for_bust
-     unless  @player_score > 21
-       game_logic(get_player_input)
-     else
-       puts "BUST! You looooose."
-     end
+    unless @player_score > 21
+      game_logic(get_player_input)
+    else
+      puts 'BUST! You looooose.'
+    end
   end
 
   def player_hits!
@@ -68,14 +67,14 @@ class Game
   end
 
   def deal_computer_hand
-      @computer_hand = Hand.new(@deck)
-      puts "Dealer was dealt []"
-      puts "Dealer was dealt #{@computer_hand.hand.last.rank}#{@computer_hand.hand.last.suit}\n\n"
-      @computer_score = 0
-      @computer_hand.hand.each do |card|
-        @computer_score += card.value
-      end
-      check_for_aces_computer
+    @computer_hand = Hand.new(@deck)
+    puts 'Dealer was dealt []'
+    puts "Dealer was dealt #{@computer_hand.hand.last.rank}#{@computer_hand.hand.last.suit}\n\n"
+    @computer_score = 0
+    @computer_hand.hand.each do |card|
+      @computer_score += card.value
+    end
+    check_for_aces_computer
   end
 
   def deal_player_hand
@@ -110,21 +109,20 @@ class Game
   def who_won?
     puts "Computer Score: #{@computer_score}"
     print_player_score
-
     if @computer_score > 21
-      puts "Dealer busts!  You win!"
+      puts 'Dealer busts!  You win!'
     elsif @computer_score >= @player_score
-      puts "Dealer wins! (You are bad and you should feel bad)"
+      puts 'Dealer wins! (You are bad and you should feel bad)'
     else
-      puts "You are a wiener!"
+      puts 'You are a wiener!'
     end
   end
 
   def play_again?
-    print "Would you like to play again? N means no. "
+    print 'Would you like to play again? N means no. '
     input = gets.chomp
-    if input.downcase == "n"
-      puts "Good game!"
+    if input.downcase == 'n'
+      puts 'Good game!'
     elsif input.to_s == input
       puts "You won't win this time!"
       play_game
